@@ -46,22 +46,29 @@ var htmlTemplate = function(ob, id) {
 	return tem
 }
 
-var insertHtml = function(test, id) {
+// var insertHtml = function(test, id) {
+// 	// data.Html = loadTheHtml()
+// 	// var h = cheerio.load(data.Html)
+// 	// var body = h('body')
+
+// 	var tem = htmlTemplate(test, id)
+// 	return tem
+// 	// log(data.Html)
+
+
+// }
+
+var insertHtml = function() {
+	data.Data = loadTheJob()
 	data.Html = loadTheHtml()
 	var h = cheerio.load(data.Html)
 	var body = h('body')
-	var tem = htmlTemplate(test, id)
-	body.append(tem)
+	for (var i = 0; i < data.Data.length; i++) {
+		var tem = htmlTemplate(data.Data[i], i)
+		body.append(tem)
+	}
 	log('测试获取html', body.html())
-	// log(data.Html)
-
-
-}
-
-var showData = function() {
-	data.Data = loadTheJob()
-	insertHtml(data.Data[0], 0)
 	
 }
 
-showData()
+insertHtml()
