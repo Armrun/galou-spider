@@ -24,9 +24,6 @@ var loadTheHtml = function() {
 	return fs.readFileSync(path, 'utf-8')
 }
 
-// data.Data = loadTheJob()
-// log(data.Data[0].jobName)
-
 var htmlTemplate = function(ob, id) {
 	var tem = `
 		<div class='jobData-container' data-id='${id}'>
@@ -46,18 +43,6 @@ var htmlTemplate = function(ob, id) {
 	`
 	return tem
 }
-
-// var insertHtml = function(test, id) {
-// 	// data.Html = loadTheHtml()
-// 	// var h = cheerio.load(data.Html)
-// 	// var body = h('body')
-
-// 	var tem = htmlTemplate(test, id)
-// 	return tem
-// 	// log(data.Html)
-
-
-// }
 
 var insertHtml = function() {
 	data.Data = loadTheJob()
@@ -80,6 +65,8 @@ var saveHTML = function() {
 	fs.writeFileSync(path, allHtml)
 }
 
-saveHTML()
+var __main = function() {
+	saveHTML()
+}
 
-// insertHtml()
+__main()
