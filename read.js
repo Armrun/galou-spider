@@ -43,16 +43,25 @@ var htmlTemplate = function(ob, id) {
 			<p><a href="${ob.url}">访问</a></p>
 		</div>
 	`
-
+	return tem
 }
 
-var insertHtml = function() {
+var insertHtml = function(test, id) {
 	data.Html = loadTheHtml()
 	var h = cheerio.load(data.Html)
-	var body = h('body').html()
+	var body = h('body')
+	var tem = htmlTemplate(test, id)
+	body.append(tem)
+	log('测试获取html', body.html())
 	// log(data.Html)
-	log('测试获取html', body)
+
+
 }
 
+var showData = function() {
+	data.Data = loadTheJob()
+	insertHtml(data.Data[0], 0)
+	
+}
 
-insertHtml()
+showData()
