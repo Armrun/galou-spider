@@ -27,6 +27,25 @@ var loadTheHtml = function() {
 // data.Data = loadTheJob()
 // log(data.Data[0].jobName)
 
+var htmlTemplate = function(ob, id) {
+	var tem = `
+		<div class='jobData-container' data-id='${id}'>
+			<div class='job-company-description'>
+				${ob.company}
+			</div>
+			<h2>${ob.jobName}</h2>
+			<div class='job-request'>
+				${ob.jobRequest}
+			</div>
+			<div class='job-description'>
+				${ob.jobDescription}
+			</div>
+			<p><a href="${ob.url}">访问</a></p>
+		</div>
+	`
+
+}
+
 var insertHtml = function() {
 	data.Html = loadTheHtml()
 	var h = cheerio.load(data.Html)
@@ -34,5 +53,6 @@ var insertHtml = function() {
 	// log(data.Html)
 	log('测试获取html', body)
 }
+
 
 insertHtml()
