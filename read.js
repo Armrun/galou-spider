@@ -42,6 +42,7 @@ var htmlTemplate = function(ob, id) {
 			</div>
 			<p><a href="${ob.url}">访问</a></p>
 		</div>
+		<hr />
 	`
 	return tem
 }
@@ -67,8 +68,18 @@ var insertHtml = function() {
 		var tem = htmlTemplate(data.Data[i], i)
 		body.append(tem)
 	}
-	log('测试获取html', body.html())
-	
+	// log('测试获取html', `<!DOCTYPE html>${h('html').html()}`)
+	return `<!DOCTYPE html>${h('html').html()}`
 }
 
-insertHtml()
+var saveHTML = function() {
+	var allHtml = insertHtml()
+	log('***********allHtml', allHtml)
+	var fs = require('fs')
+	var path = 'JavaScript职位.html'
+	fs.writeFileSync(path, allHtml)
+}
+
+saveHTML()
+
+// insertHtml()
