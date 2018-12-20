@@ -1,4 +1,6 @@
 
+const cheerio = require('cheerio')
+
 var log = function() {
 	console.log.apply(console, arguments)
 }
@@ -22,9 +24,15 @@ var loadTheHtml = function() {
 	return fs.readFileSync(path, 'utf-8')
 }
 
-data.Data = loadTheJob()
-data.Html = loadTheHtml()
+// data.Data = loadTheJob()
 // log(data.Data[0].jobName)
-log(data.Html)
 
+var insertHtml = function() {
+	data.Html = loadTheHtml()
+	var h = cheerio.load(data.Html)
+	var body = h('body').html()
+	// log(data.Html)
+	log('测试获取html', body)
+}
 
+insertHtml()
