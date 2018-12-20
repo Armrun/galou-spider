@@ -14,13 +14,13 @@ var data = new dataSaved()
 
 var loadTheJob = function() {
 	var fs = require('fs')
-	var path = 'db/前端开发其他.txt'
+	var path = 'db/Web前端.txt'
 	return JSON.parse(fs.readFileSync(path, 'utf-8'))
 }
 
 var loadTheHtml = function() {
 	var fs = require('fs')
-	var path = '可视化html/前端开发其他职位.html'
+	var path = '可视化html/Web前端职位.html'
 	return fs.readFileSync(path, 'utf-8')
 }
 
@@ -61,7 +61,7 @@ var saveHTML = function() {
 	var allHtml = insertHtml()
 	log('***********allHtml', allHtml)
 	var fs = require('fs')
-	var path = '可视化html/前端开发其他职位.html'
+	var path = '可视化html/Web前端职位.html'
 	fs.writeFileSync(path, allHtml)
 }
 
